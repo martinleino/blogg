@@ -1,0 +1,43 @@
+backend:
+  name: github
+  repo: martinleino/blogg
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/content/posts
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Date
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        date_format: "YYYY-MM-DD"
+      - label: Description
+        name: description
+        widget: string
+        required: false
+        hint: "A short summary shown in the post list."
+      - label: Language
+        name: lang
+        widget: select
+        required: false
+        options:
+          - label: English
+            value: en
+          - label: Svenska
+            value: sv
+      - label: Body
+        name: body
+        widget: markdown
